@@ -49,12 +49,12 @@ expression_male=data[row, cols_male]
 x_female = samples[cols_female]
 y_female= expression_female
 
-#print(x_female)
+print(x_female)
 #print(expression_female)
 
-x_male=samples[cols_male]
-y_male=expression_male
-
+x_male=samples[cols_male] #we technically do not need this because the female and the males will use the same x axis for plotting
+y_male=expression_male 
+print(x_male)
 
 # Plot data
 plt.rcParams['text.usetex'] = False # gives the ability to italicize
@@ -66,13 +66,12 @@ ax.set_ylabel("mRNA abundance (RPKM)")
 ax.set_ylim(0,250)
 
 ax.plot(x_female, y_female, c = "red", label="Female")
+
+ax.plot(x_female, y_male, c = "blue", label="Male")
+
+
+ax.set_xticklabels(labels=labels, rotation=90) #rotates the x axis 90 degrees and labels with dev stage
 ax.legend()
-ax.set_xticklabels(labels=labels, rotation=90) #rotates the x axis 90 degrees
-
-#ax.plot( x_male, y_male, c = "blue", label="Male")
-#ax.set_xticklabels(labels=x_male, rotation=90) #rotates the x axis 90 degrees
-
-
 
 plt.show()
 fig.savefig("sisA FBtr0073461.pdf" )
