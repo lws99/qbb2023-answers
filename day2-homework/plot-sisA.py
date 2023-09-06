@@ -15,6 +15,10 @@ data = np.loadtxt( "all_annotated.csv", delimiter=",", dtype=np.float32, skiprow
 #print( "data: ", data[0:5, 0:5] )
 
 
+
+
+
+
 # Find row with transcript of interest
 for i in range(len(transcripts)):
     if transcripts[i] == 'FBtr0073461': 
@@ -23,7 +27,9 @@ for i in range(len(transcripts)):
 
 
 
-# Find columns with samples of interest
+
+
+# Find columns with samples of interest and make 2 lists, one containing the male data and containing the female data
 cols_female = []
 cols_male=[]
 for i in range(len(samples)):
@@ -37,7 +43,11 @@ for i in range(len(samples)):
 #print(cols_male)
 
 
-# Subset data of interest
+
+
+
+
+# Subset data of interest of males and females
 expression_female = data[row, cols_female]
 expression_male=data[row, cols_male]
 
@@ -45,16 +55,31 @@ expression_male=data[row, cols_male]
 #print(expression_male)
 
 
-# Prepare data
+
+
+
+
+# Prepare female data
 x_female = samples[cols_female]
 y_female= expression_female
 
-print(x_female)
+#print(x_female)
+#print(y_female)
 #print(expression_female)
 
+#Prepare male data
 x_male=samples[cols_male] #we technically do not need this because the female and the males will use the same x axis for plotting
 y_male=expression_male 
-print(x_male)
+
+#print(x_male)
+#print(y_male)
+
+#Prepare 2* male data
+twice_male_y_data=2*(np.array(y_male))
+#print(twice_male_y_data)
+
+
+
 
 # Plot data
 plt.rcParams['text.usetex'] = False # gives the ability to italicize
@@ -66,8 +91,8 @@ ax.set_ylabel("mRNA abundance (RPKM)")
 ax.set_ylim(0,250)
 
 ax.plot(x_female, y_female, c = "red", label="Female")
-
 ax.plot(x_female, y_male, c = "blue", label="Male")
+ax.plot(x_female, twice_male_y_data, c = "lightblue", label="2*Male")
 
 
 ax.set_xticklabels(labels=labels, rotation=90) #rotates the x axis 90 degrees and labels with dev stage
