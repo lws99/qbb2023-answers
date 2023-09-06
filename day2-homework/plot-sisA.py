@@ -8,6 +8,26 @@ import numpy as np
 transcripts = np.loadtxt( "all_annotated.csv", delimiter=",", usecols=0, dtype="<U30", skiprows=1 )
 #print( "transcripts: ", transcripts[0:5] )
 
+
+#EXERCISE 2
+dataset_open=open("all_annotated.csv")
+dataset=dataset_open.readlines()
+#print(dataset)
+
+
+				#only need to read out the transcripts 
+
+transcripts_loop=[]
+
+for file in dataset:
+	file = file.rstrip()
+	file_list=file.split(',')
+	transcripts_loop.append(file_list[0])
+
+transcripts_final = transcripts_loop[1:]
+#print(transcripts_final)
+
+
 samples = np.loadtxt( "all_annotated.csv", delimiter=",", max_rows=1, dtype="<U30" )[2:]
 #print( "samples: ", samples[0:] )
 
@@ -17,7 +37,7 @@ data = np.loadtxt( "all_annotated.csv", delimiter=",", dtype=np.float32, skiprow
 
 
 
-
+#EXERCISE 1
 
 # Find row with transcript of interest
 for i in range(len(transcripts)):
@@ -100,3 +120,5 @@ ax.legend()
 plt.show()
 fig.savefig("sisA FBtr0073461.pdf" )
 plt.close( fig )
+
+
