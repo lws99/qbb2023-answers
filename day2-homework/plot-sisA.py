@@ -80,7 +80,6 @@ twice_male_y_data=2*(np.array(y_male))
 
 
 
-
 # Plot data
 plt.rcParams['text.usetex'] = False # gives the ability to italicize
 labels=['10', '11', '12', '13', '14A', '14B', '14C', '14D']
