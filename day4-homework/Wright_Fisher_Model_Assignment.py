@@ -62,21 +62,53 @@ generation=range(len(allele_frequencies_test))
 frequency=allele_frequencies_test
 
 
-
-fig, ax = plt.subplots()
+fig0, ax = plt.subplots()
 ax.set_title( "Time to allele fixation" )
 ax.set_xlabel("generation")
 ax.set_ylabel("frequency")
 ax.plot(generation, frequency, c = "red")
 
 
-plt.show()
-plt.close( fig )
+
 
 
 
 
 #EXERCISE 2
+
+#plotting allele frequency trajectories across generations for 30 model iterations
+fig1, ax=plt.subplots()
+for i in range(30):
+    allele_frequencies_test=W_F_model(0.5)
+    generation=range(len(allele_frequencies_test))
+    frequency=allele_frequencies_test
+    ax.set_title( "Time to allele fixation" )
+    ax.set_xlabel("generation")
+    ax.set_ylabel("frequency")
+    ax.plot(generation, frequency)
+
+
+
+
+#making a histogram of times to fixation
+fig2, ax=plt.subplots()
+for i in range(1000):
+    allele_frequencies_test=W_F_model(0.5)
+    frequency=allele_frequencies_test
+    ax.set_title( "Distribution of time to allele fixation" )
+    ax.set_ylabel("frequency")
+ax.hist(frequency)
+
+
+
+
+
+plt.show()
+
+
+plt.close( fig0 )
+plt.close( fig1 )
+plt.close( fig2 )
 
 
 
