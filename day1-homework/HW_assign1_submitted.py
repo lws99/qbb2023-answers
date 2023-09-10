@@ -22,7 +22,7 @@ for patient in patients:
 		integer_patients.append(i)
 	patients_alone.append(integer_patients)
 	
-#indexing the totale patient list (as int) for the fifth patient
+#indexing the total patient list (as int) for the fifth patient
 fifth_patient = patients_alone[4]
 
 #indexing the fifth patient's list of int for the flare-ups on day 1, 10, and the last day
