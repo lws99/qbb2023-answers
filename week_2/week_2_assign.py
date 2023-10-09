@@ -159,6 +159,19 @@ for edge in graph:
    print(edge)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 #commonly oversample 30X to be confident that you are covering enough of the genome
 
 
@@ -178,12 +191,3 @@ for edge in graph:
 
 
 
-"""
-for num_reads:
-    pick random start 
-    for start to s+100
-    increment count
-
-"""
-
-    #how many postiions have 0,1,2,3,4,5,etc postions --> make a histogram
