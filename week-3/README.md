@@ -6,5 +6,8 @@ sequence 2: 0
 3801
 
 1. The number of gaps in each sequence for DNA alignment:
+sequence 1: 353
+sequence 2: 387
 
-2.2. The score of the alignment for DNA alignment:
+2. The score of the alignment for DNA alignment:
+318900.0
