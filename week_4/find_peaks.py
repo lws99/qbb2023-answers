@@ -147,11 +147,12 @@ def main():
     # one value per line (in this case, representing a value for each basepair).
     # Note that wiggle files start coordinates at 1, not zero, so add 1 to your
     # chromstart. Also, the file should end in the suffix ".wig"
-    #write_wiggle(p_val, chrom, chromstart, f"{output_prefix}.wig")
+
+    write_wiggle(p_val, chrom, chromstart, f"{output_prefix}.wig")
 
 
 
-    #write_bed(p_val, chrom, chromstart, chromend, frag_width, f"{output_prefix}.bed") #take  output_prefix and use as a string, even though it is a variable I defined
+    write_bed(p_val, chrom, chromstart, chromend, frag_width, f"{output_prefix}.bed") #take  output_prefix and use as a string, even though it is a variable I defined
 
 def write_wiggle(pvalues, chrom, chromstart, fname):
     output = open(fname, 'w')
@@ -182,6 +183,19 @@ def write_bed(scores, chrom, chromstart, chromend, width, fname):
 
 
 
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
 
 
 # #Step 2: Intersecting peaks
@@ -199,61 +213,3 @@ def write_bed(scores, chrom, chromstart, chromend, width, fname):
 
 
 
-
-
-# Step 3: Visualizing the data with IGV
-# IGV is short for Integrative Genomics Viewer. It is like a light-weight genome browser you can run on your own computer. To open it, type igv 
-# in the terminal and hit enter. A browser should open.
-
-# Select the correct genome, Drosophila melanogaster (dm6) from the drop-down menu in the upper left.
-# You will add the wiggle and bed tracks you generated in the previous step for each sample. To do this, select File->Load from file in 
-# the top menu bar. Select your datasets (you can select multiple datasets at the same time). These should now load in the browser.
-# Load the combined_peak bed file you created using the same procedure
-# Navigate to the correct genomic region. You can select the chromosome from a drop-down menu next to the genome menu at the top. To zoom in, 
-# you can use the plus sign button in the upper right or click and drag to highlight a region in the coordinate bar. You can quickly move by 
-# dragging the red rectangle over the ideogram. You can also directly type in the region to go to in the text box next to the chromosome selector.
-# Format your wiggle tracks. Two-finger clicking on the track name on the left brings up a menu of options. I suggest adjusting the “track height” 
-# (100 seems reasonable) and the “set data range” (make the high value ~20 to see the lower signal).
-# Find a nice view and save an image by going to File->Save image… from the menu bar at the top.
-# Question: How reproducible are the peaks called between the two samples? Is the p-value range of a peak indicative of reproducibility? Is it completely consistent?
-
-
-
-
-
-if __name__ == "__main__":
-    main()
-
-
-
-
-
-"""
-
-
-"""
-
-
-
-
-
-
-
-
-# Specify the file name
-#     wiggle_file = "p_val.wig"
-
-# # Specify chromosome and start position
-
-# output_writing=open(output_file, "w")
-
-
-
-# # Open the file for writing
-#     with open(wiggle_file, "w") as file:
-#     # Write the fixedStep header
-#         file.write(f"fixedStep chrom={chrom} start={chromstart+1} step=1 span=1\n")
-
-#     # Write data values
-#         for value in p_val:
-#             file.write(f"{value}\n")
