@@ -85,7 +85,7 @@ fig, ax = plt.subplots(ncols=2, nrows=2)
 ax[0,0].set_xlabel("Read Depth")
 ax[0,0].set_ylabel("Frequency")
 ax[0,0].set_title("Distribution of Read Depth at Each Variant")
-ax[0,0].hist(flat_read_depth_cleaned, ) 
+ax[0,0].hist(flat_read_depth_cleaned) 
 
 
 
