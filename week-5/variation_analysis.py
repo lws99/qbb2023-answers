@@ -81,9 +81,9 @@ for i in flat_genotype_qual_cleaned:
 
 #Graphing the data 
 
-fig, ax = plt.subplots(ncols=2, nrows=2)
-ax[0,0].set_xlabel("Read Depth")
-ax[0,0].set_ylabel("Frequency")
+figure, ax = plt.subplots(ncols=2, nrows=2)
+ax[0,0].set_xlabel("Sample")
+ax[0,0].set_ylabel("Read Depth Frequency")
 ax[0,0].set_title("Distribution of Read Depth at Each Variant")
 ax[0,0].hist(flat_read_depth_cleaned) 
 
@@ -91,8 +91,8 @@ ax[0,0].hist(flat_read_depth_cleaned)
 
 
 
-ax[0,1].set_xlabel("Genotype Quality")
-ax[0,1].set_ylabel("Frequency")
+ax[0,1].set_xlabel("Sample")
+ax[0,1].set_ylabel("Genotype Quality Frequency")
 ax[0,1].set_title("Distribution of Genotyping Quality at Each Variant")
 ax[0,1].hist(flat_genotype_qual_cleaned)
 
@@ -116,13 +116,16 @@ ax[1,1].set_xlabel("Predicted Effects")
 ax[1,1].set_ylabel("Frequency")
 ax[1,1].set_title("Predicted Effects of Variants")
 
+
+
+
 plt.show()
 
 
+fig.savefig("data_exploration_week5.png")
 
 
-
-
+plt.close(figure)
 
 
 
