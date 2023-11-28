@@ -19,5 +19,5 @@ Percentage of shared sites:95.85468138657977 %
 
 
 Question 2:
-Nanopore sequencing has less coverage than bisulfite sequencing. Overall, I think nanopore is the best because it has ~96% similarity in terms of sites, but there are more sites sequenced with bisulfite sequencing.
+Nanopore sequencing has less coverage than bisulfite sequencing. Overall, I think bisulfite sequencing is the best because it has ~96% similarity to nanopore in terms of sites, but there are more sites sequenced with bisulfite sequencing.
 
