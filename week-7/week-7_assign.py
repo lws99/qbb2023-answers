@@ -68,16 +68,20 @@ def main():
     print(f"percentage of shared reads: {len(ONT_bs_overlap)/len(ONT_bs_together)*100} %")
 
 
-    fig, ax = plt.subplots(3, 1)
-    #figsize=(5,15)
+    fig, ax = plt.subplots(3, 1, figsize=(10,10))
+  
 
-    #set the labels and the title =================================
+    #3B =================================
     coverage_value_ont = numpy.array([x[1] for x in ONT.values()])
-    ax[0].hist(coverage_value_ont, bins=numpy.amax(coverage_value_ont), color='blue', label = "ONT")
+    ax[0].hist(coverage_value_ont, bins=numpy.amax(coverage_value_ont), color='blue', label = "ONT", alpha=0.6)
     coverage_value_bisulfite = numpy.array([x[1] for x in bisulfite.values()])
-    ax[0].hist(coverage_value_bisulfite, bins=numpy.amax(coverage_value_bisulfite), color='orange', label = "bisulfite")
+    ax[0].hist(coverage_value_bisulfite, bins=numpy.amax(coverage_value_bisulfite), color='orange', label = "bisulfite", alpha=0.6)
     ax[0].set_xlim(0,100)
-    # label axes, change color, add title ==========================================
+    ax[0].set_xlabel("Sequencing Coverage")
+    ax[0].set_ylabel("Frequency")
+    ax[0].set_title("Distribution of CpG Site Coverage for Bisulfite vs ONT Sequencing")
+    ax[0].legend()
+   
     
     #3C===========================================================================================================================================
     #position in overlap, find in ONT or BS the [0] value at the position
@@ -86,15 +90,13 @@ def main():
     np_hist_overlap, x_edges, y_edges=numpy.histogram2d(ONT_overlap_sites, BS_overlap_sites, bins=100)
     ax[1].imshow(numpy.log10(np_hist_overlap+1))
     pearsons=numpy.corrcoef(ONT_overlap_sites, BS_overlap_sites)[0,1]
-    title = f'Relationship of Methylation Calls Between ONT and BS Sequencing with Pearson\'s Correlation: {pearsons:.2f}'
+    title = f'Relationship of Methylation Calls Between ONT and Bisulfite Sequencing with Pearson\'s Correlation: {pearsons:.2f}'
     ax[1].set_title(title)
-    #add in title with r value and axis titles 
+    ax[1].set_xlabel("Percent Methylation ONT")
+    ax[1].set_ylabel("Percent Methylation Bisulfite")
+  
 
-    #plt.show()
-    #0,1 in tuple
-    
-    #calc R pearson
-    #google: include variable as string in a title to include the pearson's coeff in the title 
+
 
 
 
@@ -139,12 +141,15 @@ def main():
 
 
 
-    #plotting the changes - ADD THE TITLE AND AXIS LABELS ==============================
+    #plotting the changes 
+    labels=["ONT", "Bisulfite"]
     ax[2].violinplot((list(n_t_change_ONT_sites.values()), list(n_t_change_BS_sites.values())))
-    #ax[2].set_xticks([1,2])
-    #ax[2].set_xticklabels("ONT", "Bisulfite")
+    ax[2].set_xticks([1,2])
+    ax[2].set_xticklabels(labels=labels)
+    ax[2].set_xlabel("Sequencing Method")
+    ax[2].set_ylabel("Distribution of Methylation Changes")
     pearsons_2=numpy.corrcoef(common_change_sites[:,0], common_change_sites[:,1] )[0,1]
-    title2 = f'Distribution of ONT vs BS Methylation Call Changes with Pearson\'s Correlation: {pearsons_2:.2f}'
+    title2 = f'Distribution of Tumor vs Normal Sample Methylation Call Changes with Pearson\'s Correlation: {pearsons_2:.2f}'
     ax[2].set_title(title2)
  
    
@@ -156,6 +161,8 @@ def main():
 
     plt.tight_layout() 
     plt.show()
+    fig.savefig("week_7_fig.png" )
+    plt.close()
 
 
 
