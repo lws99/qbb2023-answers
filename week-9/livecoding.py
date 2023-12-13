@@ -12,6 +12,8 @@ import os
 from matplotlib import pyplot as plt
 
 
+
+
 #whole blood (755 total individuals) --> looking at every gene expressed in blood of males and females in a population
 
 
@@ -206,7 +208,12 @@ log_pval=np.log10(pval) * -1
 ax.scatter(log2_fold_change, log_pval)
 ax.set_xlabel("log2FoldChange")
 ax.set_ylabel("-log10 pval")
-ax.set_title("PyDESeq2 Differential Expression Results")
+ax.set_title("PyDESeq2 Differential Expression Results")\
+
+
+
+#use this to change the color of the datapoints
+ax.scatter([0.2, 0.5], [75, 99])
 
 
 
