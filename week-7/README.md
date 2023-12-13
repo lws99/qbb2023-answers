@@ -18,6 +18,24 @@ Percentage of shared sites:95.85468138657977 %
 
 
 
-Question 2:
-Nanopore sequencing has less coverage than bisulfite sequencing. Overall, I think bisulfite sequencing is the best because it has ~96% similarity to nanopore in terms of sites, but there are more sites sequenced with bisulfite sequencing.
+Question 2:  
+Nanopore sequencing has deeper coverage than bisulfite sequencing. Overall, I think Nanopore sequencing is the best because it covers the genome with deeper coverage than bisulfite sequencing, giving you more information about methylation across the entire genome. 
 
+Question 3:
+The ability to detect methylation changes between the two approaches is essentially the exact same, especially because Pearson's Coefficient is 1 (perfect correlation). Tumorigenesis tends to increase methylation at CpG sites. 
+
+
+Question 5:
+In the tumor landscape, there is overall more DNMT3A methylation than in the normal landscape. This is shown in the bisulfite sequencing having more peaks in the tumor sample, and the ONT sample appearing to have broadly more methylation in the tumor sample than the normal sample. This increase in DNMT3A methylation likely overall decreases de novo methylation in tumor samples. 
+
+
+Question 6:
+
+Gene imprinting means that a gene is differentially expressed based on the parent that a gene is inherited from. When I try to phase the reads the program tells me there are no variants in the selected range. 
+
+Question 7:
+Variants are required for phasing, which means that more information (longer read sequencing) is required.
+
+
+Quation 8:
+No, not any set of reads can be phased because not every set contains variants. 
