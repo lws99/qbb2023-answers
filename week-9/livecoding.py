@@ -213,7 +213,7 @@ ax.set_title("PyDESeq2 Differential Expression Results")\
 
 
 #use this to change the color of the datapoints
-ax.scatter([0.2, 0.5], [75, 99])
+#ax.scatter([0.2, 0.5], [75, 99])
 
 
 
