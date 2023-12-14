@@ -166,12 +166,15 @@ ax.scatter(range(len(maleMedians)), maleMedians, label="Male")
 ax.scatter(range(len(female_medians)), female_medians, label="Female")
 ax.set_xticks([0,1,2,3])
 ax.set_xticklabels(labels=labels, rotation=90)
+ax.set_title("Male vs Female Median LPXN Expression over Time")
+ax.set_xlabel("Age")
+ax.set_ylabel("LPXN Expression")
 ax.legend()
 #ax.barplot(median_LPXN_F_age_60)
 
 
 
-#plt.show()
+plt.show()
 
 
 
